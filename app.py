@@ -1,3 +1,5 @@
+print(">>> APP.PY LOADED <<<")
+
 import os
 import unicodedata
 import re
@@ -132,3 +134,4 @@ def solve():
 
 if __name__ == "__main__":
     app.run()
+
