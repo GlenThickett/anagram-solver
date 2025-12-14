@@ -1,0 +1,14 @@
+:root { --bg: #f6f8ff; --card: #ffffff; --accent: #4b79ff; }
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial}
+body{background:var(--bg);display:flex;align-items:center;justify-content:center;padding:2rem}
+.container{width:100%;max-width:720px;background:var(--card);padding:2rem;border-radius:12px;box-shadow:0 8px 30px rgba(20,30,60,0.08)}
+h1{margin:0 0 .25rem}
+.form{display:flex;gap:0.75rem;margin-top:1rem}
+input{flex:1;padding:0.75rem;border-radius:8px;border:1px solid #e6e9f2;font-size:1rem}
+button{padding:0.75rem 1rem;border-radius:8px;border:none;background:var(--accent);color:white;font-weight:600;cursor:pointer}
+.results{margin-top:1.25rem}
+.result-item{padding:0.5rem 0;border-bottom:1px solid #f1f3f8}
+.small{color:#6b7280;font-size:0.9rem}
+
+
+@media (max-width:520px){.form{flex-direction:column}button{width:100%}}

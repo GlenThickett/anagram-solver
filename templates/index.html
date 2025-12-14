@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anagram Solver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f7;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 600px;
+        }
+        h1 {
+            margin-top: 0;
+            font-size: 28px;
+            text-align: center;
+        }
+        input {
+            width: 95%;
+            padding: 14px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+        }
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #4f6df5;
+            border: none;
+            color: white;
+            font-size: 18px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #3f59cc;
+        }
+        .results-title {
+            margin-top: 30px;
+            font-size: 22px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 6px;
+        }
+        .result {
+            background: #eef0ff;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 6px;
+            margin: 6px 0;
+        }
+        #loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Anagram Solver</h1>
+
+    <input id="letters" type="text" placeholder="Enter letters…">
+    <button onclick="solve()">Find Anagrams</button>
+
+    <div id="loading">Searching…</div>
+
+    <div id="results-section" style="display:none;">
+        <div class="results-title">Results</div>
+        <div id="results"></div>
+    </div>
+</div>
+
+<script>
+    async function solve() {
+        const letters = document.getElementById("letters").value.trim();
+        const resultsDiv = document.getElementById("results");
+        const section = document.getElementById("results-section");
+        const loading = document.getElementById("loading");
+
+        if (!letters) {
+            resultsDiv.innerHTML = "<div class='result'>Please enter letters.</div>";
+            section.style.display = "block";
+            return;
+        }
+
+        // Show loading text
+        loading.style.display = "block";
+        resultsDiv.innerHTML = "";
+        section.style.display = "none";
+
+        try {
+            const response = await fetch(`/solve?letters=${encodeURIComponent(letters)}`);
+            const data = await response.json();
+
+            loading.style.display = "none";
+
+            if (!data.results || data.results.length === 0) {
+                resultsDiv.innerHTML = "<div class='result'>No matches found.</div>";
+            } else {
+                resultsDiv.innerHTML = data.results
+                    .map(w => `<div class="result">${w}</div>`)
+                    .join("");
+            }
+
+            section.style.display = "block";
+
+        } catch (err) {
+            loading.style.display = "none";
+            resultsDiv.innerHTML = "<div class='result'>Error contacting server.</div>";
+            section.style.display = "block";
+        }
+    }
+
+    // Pressing Enter triggers solve()
+    document.getElementById("letters").addEventListener("keydown", function (e) {
+        if (e.key === "Enter") solve();
+    });
+</script>
+</body>
+</html>
