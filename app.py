@@ -2,7 +2,7 @@ import os
 import unicodedata
 import re
 import collections
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, render_template, request, jsonify, send_from_directory
 
 app = Flask(__name__)
 
@@ -103,8 +103,8 @@ build_anagram_map()
 #-------------------------------------------------------------
 
 @app.route("/")
-def serve_index():
-    return send_from_directory(".", "index.html")
+def home():
+    return render_template("index.html")
 
 
 @app.route("/solve")
@@ -131,8 +131,4 @@ def solve():
 #-------------------------------------------------------------
 
 if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0",  # allow network access
-        port=5000,
-        debug=True
-    )
+    app.run()
