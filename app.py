@@ -108,9 +108,9 @@ build_anagram_map()
 def home():
     return render_template("index.html")
 
-@app.route("/how-to-solve")
+@app.route("/how-to-solve-anagrams")
 def how_to_solve():
-    return render_template("how_to_solve.html")
+    return render_template("how_to_solve_anagrams.html")
 
 @app.route("/solve")
 def solve():
@@ -137,4 +137,5 @@ def solve():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
+
 
