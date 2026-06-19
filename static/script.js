@@ -1,13 +1,16 @@
 const wordInput = document.getElementById('wordInput');
 const solveBtn = document.getElementById('solveBtn');
 const resultsDiv = document.getElementById('results');
+const multiword = document.getElementById("multiword").checked;
 
 
 async function solve(word){
 if(!word) return;
 resultsDiv.innerHTML = '<div class="small">Searching...</div>';
 try{
-const resp = await fetch(`/api/anagrams?word=${encodeURIComponent(word)}`);
+const response = await fetch(
+    `/solve?letters=${encodeURIComponent(letters)}&multiword=${multiword}`
+);
 if(!resp.ok){
 const err = await resp.json();
 resultsDiv.innerHTML = `<div class="small">Error: ${err.error || resp.statusText}</div>`;
