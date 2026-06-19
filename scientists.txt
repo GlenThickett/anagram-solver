@@ -79,7 +79,6 @@ Friedrich J. Haberlandt
 Sergei Korolev
 John Renshaw Carson
 Louis Bertrand Castel
-Q178577
 Abdelkader El Djezairi
 Leon Battista Alberti
 George H. Heilmeier
@@ -470,7 +469,6 @@ Al-Juwayni
 Giovanni Battista Brocchi
 José Manuel Rodriguez Delgado
 Semyon Davidovich Kirlian
-Q2619019
 Nikolai Sudzilovsky
 John Moffat
 Caterina Scarpellini
