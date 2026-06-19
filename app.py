@@ -105,7 +105,6 @@ build_anagram_map()
 @app.route("/solve")
 def solve():
     letters = request.args.get("letters", "").strip()
-    multiword = request.args.get("multiword", "false").lower() == "true"
 
     if not letters:
         return jsonify({"error": "No letters provided", "results": []})
@@ -115,13 +114,9 @@ def solve():
 
     matches = ANAGRAM_MAP.get(key, [])
 
-    if not multiword:
-        matches = [m for m in matches if " " not in m]
-
     print(
         f"[SEARCH] "
         f"length={len(cleaned)} "
-        f"multiword={multiword} "
         f"results={len(matches)} "
         f"query='{letters}'",
         flush=True
@@ -129,7 +124,6 @@ def solve():
 
     return jsonify({
         "query": letters,
-        "multiword": multiword,
         "results": sorted(set(matches))
     })
 
