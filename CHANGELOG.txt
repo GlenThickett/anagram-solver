@@ -1,0 +1,14 @@
+Anagram Solver
+
+Version 1.0 - 14/12/2025
+- Added word lists
+- Single word searches
+- Simple presentation
+
+Version 1.1 - 19/06/2026
+-----------
+- Added multi-word phrase support
+- Added phrases wordlist
+- Added usage logging
+- Moved CSS to external stylesheet
+- Improved Render deployment
