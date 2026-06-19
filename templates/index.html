@@ -20,11 +20,6 @@
     <h1>Anagram Solver</h1>
 
     <input id="letters" type="text" placeholder="Enter letters…">
-    	
-	<label class="checkbox-row">
-		<span>allow multi-word results</span>
-		<input type="checkbox" id="multiword">
-	</label>
 	
 	<button onclick="solve()">Find Anagrams</button>
 
@@ -40,7 +35,6 @@
 <script>
     async function solve() {
         const letters = document.getElementById("letters").value.trim();
-        const multiword = document.getElementById("multiword").checked;
 
         const resultsDiv = document.getElementById("results");
         const section = document.getElementById("results-section");
@@ -58,7 +52,7 @@
 
         try {
             const response = await fetch(
-                `/solve?letters=${encodeURIComponent(letters)}&multiword=${multiword}`
+                `/solve?letters=${encodeURIComponent(letters)}`
             );
 
             const data = await response.json();
