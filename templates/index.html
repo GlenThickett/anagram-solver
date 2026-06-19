@@ -1,80 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-FRLCJ4HKYS"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+
+	  gtag('config', 'G-FRLCJ4HKYS');
+	</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anagram Solver</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f7;
-            margin: 0;
-            padding: 40px;
-            display: flex;
-            justify-content: center;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 600px;
-        }
-        h1 {
-            margin-top: 0;
-            font-size: 28px;
-            text-align: center;
-        }
-        input {
-            width: 95%;
-            padding: 14px;
-            font-size: 18px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
-        }
-        button {
-            width: 100%;
-            padding: 14px;
-            background: #4f6df5;
-            border: none;
-            color: white;
-            font-size: 18px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #3f59cc;
-        }
-        .results-title {
-            margin-top: 30px;
-            font-size: 22px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 6px;
-        }
-        .result {
-            background: #eef0ff;
-            padding: 10px;
-            font-size: 18px;
-            border-radius: 6px;
-            margin: 6px 0;
-        }
-        #loading {
-            display: none;
-            text-align: center;
-            margin-top: 20px;
-            font-style: italic;
-            color: #555;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
 <div class="container">
     <h1>Anagram Solver</h1>
 
     <input id="letters" type="text" placeholder="Enter letters…">
-    <button onclick="solve()">Find Anagrams</button>
+    	
+	<label class="checkbox-row">
+		<span>allow multi-word results</span>
+		<input type="checkbox" id="multiword">
+	</label>
+	
+	<button onclick="solve()">Find Anagrams</button>
 
     <div id="loading">Searching…</div>
 
@@ -84,9 +36,12 @@
     </div>
 </div>
 
+
 <script>
     async function solve() {
         const letters = document.getElementById("letters").value.trim();
+        const multiword = document.getElementById("multiword").checked;
+
         const resultsDiv = document.getElementById("results");
         const section = document.getElementById("results-section");
         const loading = document.getElementById("loading");
@@ -97,14 +52,24 @@
             return;
         }
 
-        // Show loading text
         loading.style.display = "block";
         resultsDiv.innerHTML = "";
         section.style.display = "none";
 
         try {
-            const response = await fetch(`/solve?letters=${encodeURIComponent(letters)}`);
+            const response = await fetch(
+                `/solve?letters=${encodeURIComponent(letters)}&multiword=${multiword}`
+            );
+
             const data = await response.json();
+			
+			if (typeof gtag === "function") {
+				gtag("event", "anagram_search", {
+					multiword: multiword,
+					query_length: letters.length,
+					result_count: data.results ? data.results.length : 0
+				});
+			}
 
             loading.style.display = "none";
 
@@ -125,7 +90,6 @@
         }
     }
 
-    // Pressing Enter triggers solve()
     document.getElementById("letters").addEventListener("keydown", function (e) {
         if (e.key === "Enter") solve();
     });
