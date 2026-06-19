@@ -1,44 +1,73 @@
-const wordInput = document.getElementById('wordInput');
-const solveBtn = document.getElementById('solveBtn');
-const resultsDiv = document.getElementById('results');
-const multiword = document.getElementById("multiword").checked;
+const lettersInput = document.getElementById("letters");
+const resultsDiv = document.getElementById("results");
+const resultsSection = document.getElementById("results-section");
+const loading = document.getElementById("loading");
 
+async function solve() {
+    const letters = lettersInput.value.trim();
 
-async function solve(word){
-if(!word) return;
-resultsDiv.innerHTML = '<div class="small">Searching...</div>';
-try{
-const response = await fetch(
-    `/solve?letters=${encodeURIComponent(letters)}&multiword=${multiword}`
-);
-if(!resp.ok){
-const err = await resp.json();
-resultsDiv.innerHTML = `<div class="small">Error: ${err.error || resp.statusText}</div>`;
-return;
+    if (!letters) {
+        resultsDiv.innerHTML = "<div class='result'>Please enter letters.</div>";
+        resultsSection.style.display = "block";
+        return;
+    }
+
+    loading.style.display = "block";
+    resultsDiv.innerHTML = "";
+    resultsSection.style.display = "none";
+
+    try {
+        const response = await fetch(
+            `/solve?letters=${encodeURIComponent(letters)}`
+        );
+
+        if (!response.ok) {
+            resultsDiv.innerHTML = "<div class='result'>Error contacting server.</div>";
+            resultsSection.style.display = "block";
+            loading.style.display = "none";
+            return;
+        }
+
+        const data = await response.json();
+
+        if (typeof gtag === "function") {
+            gtag("event", "anagram_search", {
+                query_length: letters.length,
+                result_count: data.results ? data.results.length : 0
+            });
+        }
+
+        loading.style.display = "none";
+
+        if (!data.results || data.results.length === 0) {
+            resultsDiv.innerHTML = "<div class='result'>No matches found.</div>";
+        } else {
+            resultsDiv.innerHTML = data.results
+                .map(word => `<div class="result">${escapeHtml(word)}</div>`)
+                .join("");
+        }
+
+        resultsSection.style.display = "block";
+
+    } catch (err) {
+        loading.style.display = "none";
+        resultsDiv.innerHTML = "<div class='result'>Network error.</div>";
+        resultsSection.style.display = "block";
+    }
 }
-const j = await resp.json();
-renderResults(j);
-}catch(e){
-resultsDiv.innerHTML = `<div class="small">Network error</div>`;
-}
-}
 
-
-function renderResults(data){
-const { input, anagrams, count } = data;
-if(count === 0){
-resultsDiv.innerHTML = `<div class="small">No anagrams found for "${escapeHtml(input)}"</div>`;
-return;
-}
-resultsDiv.innerHTML = `<div class="small">Found ${count} anagram(s) for "${escapeHtml(input)}"</div>` +
-'<ul>' + anagrams.map(a => `<li class="result-item">${escapeHtml(a)}</li>`).join('') + '</ul>';
+function escapeHtml(text) {
+    return text.replace(/[&<>'"]/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "'": "&#39;",
+        '"': "&quot;"
+    }[char]));
 }
 
-
-function escapeHtml(s){
-return s.replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
-}
-
-
-solveBtn.addEventListener('click', ()=> solve(wordInput.value.trim()));
-wordInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') solve(wordInput.value.trim()); });
+lettersInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+        solve();
+    }
+});
