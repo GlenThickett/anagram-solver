@@ -15,12 +15,10 @@ Patricio Aylwin
 Adolf Hitler
 Augusto Pinochet
 Salvador Allende
-Q444
 Eduardo Frei Montalva
 Ulrich Frédéric Woldemar, Comte de Lowendal
 Napoleon
 Victor Hugo
-Q539
 Angela Merkel
 Jorge Alessandri
 Carlos Ibáñez del Campo
@@ -43,7 +41,6 @@ Julius Caesar
 Italo Balbo
 Narendra Modi
 Alessandro Manzoni
-Q1067
 Bill Clinton
 Indira Gandhi
 Giorgio Napolitano
@@ -339,7 +336,6 @@ José Eduardo dos Santos
 Salva Kiir Mayardit
 Norodom Sihamoni
 Laura Chinchilla
-Q57322
 Otto V or III, Duke of Bavaria
 Blaise Compaoré
 Rupert
@@ -457,7 +453,6 @@ Klaus Tschütscher
 Walter Schellenberg
 John Key
 Hun Sen
-Q57789
 Mark Rutte
 Bidzina Ivanishvili
 Tillman Thomas
@@ -621,7 +616,6 @@ Frédéric Bastiat
 Tuomas Ketola
 Moctezuma I
 Alberto Bayo
-Q14281
 Lee Myung-bak
 Roh Moo-hyun
 Park Chung-hee
@@ -1171,7 +1165,6 @@ Robert Heinrich Wagner
 Joachim Albrecht Eggeling
 Sibylle Berg
 Omid Nouripour
-Q71674
 Karl Alexander, 5th Prince of Thurn and Taxis
 Josef Duchač
 Friedrich Immanuel Niethammer
@@ -1367,7 +1360,6 @@ Albert Bormann
 Hamengkubuwono IX
 Emil Adolf Rossmässler
 Franziska Brantner
-Q76289
 Alex Möller
 Adam Malik
 Umar Wirahadikusumah
@@ -1480,7 +1472,6 @@ Abbad II al-Mu'tadid
 Konstantinos IX Monomachos
 Al-Mansur
 Bill Frist
-Q31236
 Archbishop Damaskinos Papandreou
 Arthur Nicolson, 1st Baron Carnock
 Tiberius II Constantine
@@ -1517,7 +1508,6 @@ Michael Grimm
 Vladimír Špidla
 Albert of Riga
 Heinrich von Brentano
-Q60957
 Julius Dorpmüller
 Hermann Burmeister
 Jürgen Rüttgers
@@ -1529,7 +1519,6 @@ Prince Leopold of Bavaria
 Maximilian von Prittwitz
 Josef Blösche
 Max Hoffmann
-Q61051
 Olaf Scholz
 Arno Breker
 Ludwig Uhland
@@ -1560,7 +1549,6 @@ Frederick III, Duke of Schleswig-Holstein-Gottorp
 Wolfgang Tiefensee
 Rudolf von Sebottendorf
 Ernst Curtius
-Q61409
 Eleanor Marx
 Theodor Lessing
 Frederick II, Duke of Saxe-Gotha-Altenburg
@@ -1580,7 +1568,6 @@ Ludwig Renn
 Andronikos Kontostephanos
 Kaykhusraw I
 Kilij Arslan III
-Q61604
 Georg Gottfried Gervinus
 Friedrich Ebert Jr.
 Ernst Engel
@@ -1795,7 +1782,6 @@ Karl Ernst
 Ignaz von Döllinger
 Oskar von Hindenburg
 Sabine Leutheusser-Schnarrenberger
-Q62180
 Erich Ollenhauer
 Peter Harry Carstensen
 Peter Struck
@@ -1855,9 +1841,7 @@ Gerhard von Schwerin
 Duke Wilhelm in Bavaria
 Andrea Nahles
 Frederick I
-Q62812
 Gustav von Schmoller
-Q62858
 Klaus Töpfer
 Wilhelm Ohnesorge
 Kurt Schmitt
@@ -2139,7 +2123,6 @@ Rajko Kuzmanović
 Michael Häupl
 John Lewis
 Anna de' Medici, Archduchess of Austria
-Q45392
 Blanche of Montferrat
 Seth Bullock
 Joachim Chreptowicz
@@ -2196,12 +2179,10 @@ Jakob Sporrenberg
 Friedrich Wilhelm, Count Brandenburg
 Justus Möser
 Ernst Nolte
-Q65109
 Beate Klarsfeld
 Gesine Lötzsch
 Alfred Hugenberg
 Gregor Gysi
-Q65128
 Jürgen Trumpf
 Karl Genzken
 Heinrich von Gagern
@@ -2216,7 +2197,6 @@ Walter Buch
 Alfred Dregger
 Herta Däubler-Gmelin
 Elisabeth Schwarzhaupt
-Q65437
 Georg Leibbrandt
 Joseph von Radowitz
 Heinz Brücher
@@ -2258,7 +2238,6 @@ Hans Beimler
 Adolf Heinrich von Arnim-Boitzenburg
 Friedrich von Holstein
 Adam von Trott zu Solz
-Q66008
 Monika Wulf-Mathies
 Friedrich Wilhelm Foerster
 Josef Ludwig von Armansperg
@@ -2378,7 +2357,6 @@ Claudia Jung
 Andreas von Bülow
 Eugen Schiffer
 Robert Lehr
-Q66632
 Andreas Hermes
 Paul Mauser
 Carl Severing
@@ -3019,7 +2997,6 @@ Achim Steiner
 Franz Hofer
 Siegfried Uiberreither
 Victor L. Berger
-Q85691
 Alexander Dobrindt
 Peter Schulz
 Christian Lindner
@@ -3042,7 +3019,6 @@ Kurt Eggers
 Ravi Shankar
 Julius Nepos
 Gustav Stresemann
-Q104154
 Robert Walpole
 Karl Weinhold
 Mohamed Naguib
@@ -3110,7 +3086,6 @@ Władysław II Jagiełło
 Władysław III Spindleshanks
 Nambaryn Enkhbayar
 Meg Whitman
-Q55245
 Paweł Kukiz
 Shyam Benegal
 Joscelin II
@@ -3137,9 +3112,6 @@ August Zaleski
 Marek Belka
 Jan Krzysztof Bielecki
 Jerzy Buzek
-Q55915
-Q55917
-Q55920
 Tadeusz Mazowiecki
 Józef Oleksy
 Jan Olszewski
@@ -3286,7 +3258,6 @@ Tigran Sargsyan
 Ephraim Katzir
 Kim Yong-nam
 Olli-Pekka Karjalainen
-Q110719
 Víctor Jara
 Benjamin Sheares
 Merytre-Hatshepsut
@@ -3343,7 +3314,6 @@ Hans-Olaf Henkel
 Catherine Ashton
 Karl Lauterbach
 Heinrich LXIII, Prince Reuss of Köstritz
-Q105761
 Erich Fuchs
 Otto Wagener
 Erwin Lambert
@@ -3719,7 +3689,6 @@ Martin Sonneborn
 Evelyn Regner
 Hellmuth von Mücke
 Peter Hintze
-Q87648
 Ferdinand von Bauer
 Günther Krause
 Antje Huber
@@ -3874,7 +3843,6 @@ Joanna of Austria, Princess of Portugal
 Prince Richard, Duke of Gloucester
 Rechavam Ze'evi
 Lucas Cranach the Younger
-Q170340
 René of Anjou
 Tadeusz Bór-Komorowski
 Maxime Weygand
@@ -4009,7 +3977,6 @@ Servius Sulpicius Camerinus Cornutus
 Ramūnas Karbauskis
 Tanaka Giichi
 Abigail Adams
-Q206327
 Joseph Addison
 Konstantinos Stephanopoulos
 Karim Bil Qassem
@@ -4444,7 +4411,6 @@ Louis I of Spain
 Faisal I of Iraq
 Charles Jonnart
 Duke Wilhelm of Württemberg
-Q212648
 Haxhi Lleshi
 Lucius Tarquinius Priscus
 Symon Petliura
@@ -4528,7 +4494,6 @@ Michael Georg Conrad
 Theodor Gottlieb von Hippel the Elder
 Jan Christiaan Smuts
 Fritz Wiedemann
-Q214367
 Félix Houphouët-Boigny
 Georg Adam, Prince of Starhemberg
 Robert Menzies
@@ -4654,7 +4619,6 @@ Kiro Gligorov
 Konstantin von Neurath
 Jacques Delors
 Diane Abbott
-Q153460
 Jenna Bush Hager
 Joseph Radetzky von Radetz
 Makarios III
