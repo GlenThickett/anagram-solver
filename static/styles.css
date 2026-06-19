@@ -47,20 +47,6 @@ input[type="text"] {
     margin-bottom: 12px;
 }
 
-.checkbox-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 4px 0 18px 0;
-    font-size: 14px;
-    color: var(--muted);
-}
-
-.checkbox-row input[type="checkbox"] {
-    width: auto;
-    margin: 0;
-    padding: 0;
-}
 
 button {
     width: 100%;
