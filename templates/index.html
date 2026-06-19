@@ -31,62 +31,6 @@
     </div>
 </div>
 
-
-<script>
-    async function solve() {
-        const letters = document.getElementById("letters").value.trim();
-
-        const resultsDiv = document.getElementById("results");
-        const section = document.getElementById("results-section");
-        const loading = document.getElementById("loading");
-
-        if (!letters) {
-            resultsDiv.innerHTML = "<div class='result'>Please enter letters.</div>";
-            section.style.display = "block";
-            return;
-        }
-
-        loading.style.display = "block";
-        resultsDiv.innerHTML = "";
-        section.style.display = "none";
-
-        try {
-            const response = await fetch(
-                `/solve?letters=${encodeURIComponent(letters)}`
-            );
-
-            const data = await response.json();
-			
-			if (typeof gtag === "function") {
-				gtag("event", "anagram_search", {
-					multiword: multiword,
-					query_length: letters.length,
-					result_count: data.results ? data.results.length : 0
-				});
-			}
-
-            loading.style.display = "none";
-
-            if (!data.results || data.results.length === 0) {
-                resultsDiv.innerHTML = "<div class='result'>No matches found.</div>";
-            } else {
-                resultsDiv.innerHTML = data.results
-                    .map(w => `<div class="result">${w}</div>`)
-                    .join("");
-            }
-
-            section.style.display = "block";
-
-        } catch (err) {
-            loading.style.display = "none";
-            resultsDiv.innerHTML = "<div class='result'>Error contacting server.</div>";
-            section.style.display = "block";
-        }
-    }
-
-    document.getElementById("letters").addEventListener("keydown", function (e) {
-        if (e.key === "Enter") solve();
-    });
-</script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
