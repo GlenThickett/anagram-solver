@@ -1,5 +1,3 @@
-print(">>> APP.PY LOADED <<<")
-
 import os
 import unicodedata
 import re
@@ -104,21 +102,10 @@ build_anagram_map()
 # ROUTES
 #-------------------------------------------------------------
 
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-@app.route("/how-to-solve-anagrams")
-def how_to_solve():
-    return render_template("how_to_solve_anagrams.html")
-
 @app.route("/solve")
 def solve():
-    """
-    Frontend sends: /solve?letters=exampletext
-    Returns JSON list of matching anagrams.
-    """
     letters = request.args.get("letters", "").strip()
+    multiword = request.args.get("multiword", "false").lower() == "true"
 
     if not letters:
         return jsonify({"error": "No letters provided", "results": []})
@@ -128,14 +115,32 @@ def solve():
 
     matches = ANAGRAM_MAP.get(key, [])
 
-    return jsonify({"query": letters, "results": sorted(set(matches))})
+    if not multiword:
+        matches = [m for m in matches if " " not in m]
+
+    print(
+        f"[SEARCH] "
+        f"length={len(cleaned)} "
+        f"multiword={multiword} "
+        f"results={len(matches)} "
+        f"query='{letters}'",
+        flush=True
+    )
+
+    return jsonify({
+        "query": letters,
+        "multiword": multiword,
+        "results": sorted(set(matches))
+    })
 
 
 #-------------------------------------------------------------
 # MAIN ENTRY
 #-------------------------------------------------------------
+@app.route("/")
+def home():
+    return render_template("index.html")
+    
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
-
